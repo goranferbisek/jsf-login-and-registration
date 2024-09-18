@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+war {
+    archiveFileName = 'jsf-login-and-registration.war'
+}
+
+group 'si.ferbisek'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+    targetCompatibility = '17'
+    sourceCompatibility = '17'
+}
+
+dependencies {
+    implementation 'jakarta.platform:jakarta.jakartaee-api:10.0.0'
+}
