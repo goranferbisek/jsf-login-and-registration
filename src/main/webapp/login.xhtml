@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:h="jakarta.faces.html">
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="username" value="Username:" />
+                <h:inputText id="username" value="" />
+                <h:outputLabel for="password" value="Password:" />
+                <h:inputSecret id="password" value="" />
+                <h:commandButton value="Login" action="test" />
+            </h:panelGrid>
+        </h:form>
+    </body>
+</html>
