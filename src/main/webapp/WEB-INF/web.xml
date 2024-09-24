@@ -25,15 +25,16 @@
             <role-name>VIEW_USER_PAGES</role-name>
         </auth-constraint>
     </security-constraint>
+    <!-- exclude the login page from security -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Login Page</web-resource-name>
+            <url-pattern>/login.xhtml</url-pattern>
+        </web-resource-collection>
+        <!-- No <auth-constraint> means it's publicly accessible -->
+    </security-constraint>
     <security-role>
         <role-name>VIEW_USER_PAGES</role-name>
     </security-role>
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.xhtml</form-login-page>
-            <form-error-page>/error.xhtml</form-error-page>
-        </form-login-config>
-    </login-config>
 
 </web-app>
