@@ -15,14 +15,20 @@ import jakarta.security.enterprise.identitystore.DatabaseIdentityStoreDefinition
         )
 )
 @DatabaseIdentityStoreDefinition(
-        dataSourceLookup = "java:app/MyDataSource",
+        dataSourceLookup = "java:jboss/datasources/CredentialsDS",
         callerQuery = "SELECT password FROM users WHERE username = ?",
         groupsQuery = "SELECT group_name FROM user_groups WHERE username = ?"
 )
+
+/*
+This defines an in memory H2 database
+No need to define it in persistence.xml
+Cannot use ExampleDS is already defined in WildFly standalone.xml
+* */
 @DataSourceDefinition(
-        name = "java:app/MyDataSource",
+        name = "java:jboss/datasources/CredentialsDS",
         className = "org.h2.jdbcx.JdbcDataSource",
-        url = "jdbc:h2:~/test:MODE=LEGACY;DB_CLOSE_ON_EXIT=FALSE"
+        url = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
 )
 @FacesConfig
 @ApplicationScoped
